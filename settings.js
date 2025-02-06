@@ -1,9 +1,9 @@
 export default 
 {
-    "minecraft_version": "1.20.4", // supports up to 1.21.1
-    "host": "127.0.0.1", // or "localhost", "your.ip.address.here"
-    "port": 55916,
-    "auth": "offline", // or "microsoft"
+    "minecraft_version": "1.21.1", // supports up to 1.21.1
+    "host": "localhost", // or "localhost", "your.ip.address.here"
+    "port": 3001,
+    "auth": "dancing2tubes", // or "microsoft"
 
     // the mindserver manages all agents and hosts the UI
     "host_mindserver": true, // if true, the mindserver will be hosted on this machine. otherwise, specify a public IP address
@@ -11,16 +11,16 @@ export default
     "mindserver_port": 8080,
     
     "profiles": [
-        "./andy.json",
-        // "./profiles/gpt.json",
-        // "./profiles/claude.json",
+        //"./andy.json",
+         "./profiles/gpt.json",
+         "./profiles/claude.json",
         // "./profiles/gemini.json",
         // "./profiles/llama.json",
         // "./profiles/qwen.json",
         // "./profiles/mistral.json",
-        // "./profiles/grok.json",
+         "./profiles/grok.json",
         // "./profiles/mistral.json",
-        // "./profiles/deepseek.json",
+         "./profiles/deepseek.json",
 
         // using more than 1 profile requires you to /msg each bot indivually
     ],
@@ -31,7 +31,7 @@ export default
     "language": "en", // translate to/from this language. Supports these language names: https://cloud.google.com/translate/docs/languages
     "show_bot_views": false, // show bot's view in browser at localhost:3000, 3001...
 
-    "allow_insecure_coding": false, // allows newAction command and model can write/run code on your computer. enable at own risk
+    "allow_insecure_coding": true, // allows newAction command and model can write/run code on your computer. enable at own risk
     "code_timeout_mins": 10, // minutes code is allowed to run. -1 for no timeout
 
     "max_messages": 15, // max number of messages to keep in context

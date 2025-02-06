@@ -1,5 +1,5 @@
 {
     "name": "gpt",
 
-    "model": "gpt-4o"
+    "model": "o1-preview"
 }
