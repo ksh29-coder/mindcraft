@@ -1,0 +1,155 @@
+
+
+  
+# Mindcraft Project Cursor Rules
+  You are an expert in JavaScript, Node js and mineflayer library.
+
+
+# Project Structure Rules
+src/agent/** {
+    language: javascript
+    context: "Agent system files handling bot behavior, actions, and decision-making"
+}
+
+src/models/** {
+    language: javascript
+    context: "LLM integration files for different AI models (OpenAI, Gemini, Claude, etc.)"
+}
+
+src/utils/** {
+    language: javascript
+    context: "Utility functions and helpers for the project"
+}
+
+src/server/** {
+    language: javascript
+    context: "Server-side code for web interface and bot visualization"
+}
+
+src/process/** {
+    language: javascript
+    context: "Process management and initialization code"
+}
+
+# Key Files
+main.js {
+    language: javascript
+    context: "Main entry point for the application. Handles startup configuration and agent initialization"
+}
+
+settings.js {
+    language: javascript
+    context: "Global settings and configuration for the application"
+}
+
+# Core Agent Components
+src/agent/agent.js {
+    language: javascript
+    context: "Core agent class implementing bot behavior and decision-making"
+    related: [
+        "src/agent/coder.js",
+        "src/agent/prompter.js",
+        "src/agent/memory_bank.js"
+    ]
+}
+
+src/agent/coder.js {
+    language: javascript
+    context: "Handles code generation and execution for bot actions"
+    related: [
+        "src/agent/agent.js",
+        "src/agent/action_manager.js"
+    ]
+}
+
+src/agent/library/** {
+    language: javascript
+    context: "Core bot skills and world interaction utilities"
+}
+
+# Model Integration
+src/models/*.js {
+    language: javascript
+    context: "LLM provider implementations for different AI services"
+}
+
+# Configuration Files
+profiles/*.json {
+    language: json
+    context: "Agent profile configurations defining behavior and settings"
+}
+
+# Server Components
+src/server/mind_server.js {
+    language: javascript
+    context: "Web server implementation for bot visualization and control"
+}
+
+src/server/public/** {
+    language: html,javascript,css
+    context: "Frontend files for web interface"
+}
+
+# Utility Functions
+src/utils/mcdata.js {
+    language: javascript
+    context: "Minecraft data utilities for block and item management"
+}
+
+src/utils/translator.js {
+    language: javascript
+    context: "Translation utilities for multi-language support"
+}
+
+# Process Management
+src/process/agent_process.js {
+    language: javascript
+    context: "Agent process management and lifecycle control"
+}
+
+# Test Files
+**/*.test.js {
+    language: javascript
+    context: "Test files for various components"
+}
+
+# Documentation
+*.md {
+    language: markdown
+    context: "Project documentation and guides"
+}
+
+# Package Configuration
+package.json {
+    language: json
+    context: "Project dependencies and scripts"
+}
+
+# Ignore Rules
+node_modules/** {
+    ignore: true
+}
+
+code_records/** {
+    ignore: true
+}
+
+bots/**/action-code/** {
+    ignore: true
+}
+
+services/viaproxy/** {
+    ignore: true
+}
+
+.vscode/** {
+    ignore: true
+}
+
+.idea/** {
+    ignore: true
+}
+
+patches/** {
+    ignore: true
+}
