@@ -9,7 +9,6 @@ import { NPCContoller } from './npc/controller.js';
 import { MemoryBank } from './memory_bank.js';
 import { SelfPrompter } from './self_prompter.js';
 import convoManager from './conversation.js';
-import { handleTranslation, handleEnglishTranslation } from '../utils/translator.js';
 import { addViewer } from './viewer.js';
 import settings from '../../settings.js';
 import { serverProxy } from './agent_proxy.js';
@@ -133,8 +132,8 @@ export class Agent {
                     console.warn('received whisper from other bot??')
                 }
                 else {
-                    let translation = await handleEnglishTranslation(message);
-                    this.handleMessage(username, translation);
+                    // Remove translation and directly handle the message
+                    this.handleMessage(username, message);
                 }
             } catch (error) {
                 console.error('Error handling message:', error);
@@ -202,6 +201,8 @@ export class Agent {
             return false;
         }
 
+        console.log('received message from', source, ':', message);
+
         let used_command = false;
         if (max_responses === null) {
             max_responses = settings.max_commands === -1 ? Infinity : settings.max_commands;
@@ -235,10 +236,6 @@ export class Agent {
 
         if (from_other_bot)
             this.last_sender = source;
-
-        // Now translate the message
-        message = await handleEnglishTranslation(message);
-        console.log('received message from', source, ':', message);
 
         const checkInterrupt = () => this.self_prompter.shouldInterrupt(self_prompt) || this.shut_up || convoManager.responseScheduledFor(source);
         
@@ -339,17 +336,8 @@ export class Agent {
     }
 
     async openChat(message) {
-        let to_translate = message;
-        let remaining = '';
-        let command_name = containsCommand(message);
-        let translate_up_to = command_name ? message.indexOf(command_name) : -1;
-        if (translate_up_to != -1) { // don't translate the command
-            to_translate = to_translate.substring(0, translate_up_to);
-            remaining = message.substring(translate_up_to);
-        }
-        message = (await handleTranslation(to_translate)).trim() + " " + remaining;
-        // newlines are interpreted as separate chats, which triggers spam filters. replace them with spaces
-        message = message.replaceAll('\n', ' ');
+        // Just handle newlines
+        message = message.replaceAll('\n', ' '); // Keep newline replacement for spam prevention
 
         if (settings.only_chat_with.length > 0) {
             for (let username of settings.only_chat_with) {

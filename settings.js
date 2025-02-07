@@ -7,8 +7,8 @@ export default
 
     // the mindserver manages all agents and hosts the UI
     "host_mindserver": true, // if true, the mindserver will be hosted on this machine. otherwise, specify a public IP address
-    "mindserver_host": "localhost",
-    "mindserver_port": 8080,
+    "mindserver_host": "dancing2tubes.aternos.me",
+    "mindserver_port": 25565,
     
     "profiles": [
         //"./andy.json",
@@ -28,7 +28,6 @@ export default
     "init_message": "Respond with hello world and your name", // sends to all on spawn
     "only_chat_with": [], // users that the bots listen to and send general messages to. if empty it will chat publicly
     
-    "language": "en", // translate to/from this language. Supports these language names: https://cloud.google.com/translate/docs/languages
     "show_bot_views": false, // show bot's view in browser at localhost:3000, 3001...
 
     "allow_insecure_coding": true, // allows newAction command and model can write/run code on your computer. enable at own risk
