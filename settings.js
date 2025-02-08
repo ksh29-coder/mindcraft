@@ -7,19 +7,23 @@ export default
 
     // the mindserver manages all agents and hosts the UI
     "host_mindserver": true, // if true, the mindserver will be hosted on this machine. otherwise, specify a public IP address
-    "mindserver_host": "dancing2tubes.aternos.me",
-    "mindserver_port": 25565,
+    "mindserver_host": "localhost",
+    "mindserver_port": 3002, // changed from 25565 to avoid port conflict
+    
+    // Translation settings
+    "enable_translation": true, // enable automatic translation of non-English messages
+    "show_original_text": true, // show original text alongside translation
     
     "profiles": [
         //"./andy.json",
          "./profiles/kai.json",
-         "./profiles/gpt.json",
+         //"./profiles/gpt.json",
          "./profiles/claude.json",
         // "./profiles/gemini.json",
         // "./profiles/llama.json",
         // "./profiles/qwen.json",
         // "./profiles/mistral.json",
-         "./profiles/grok.json",
+         //"./profiles/grok.json",
          "./profiles/deepseek.json",
         // "./profiles/mistral.json",
 

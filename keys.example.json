@@ -8,5 +8,7 @@
     "HUGGINGFACE_API_KEY": "",
     "QWEN_API_KEY": "",
     "XAI_API_KEY": "",
-    "MISTRAL_API_KEY": ""
+    "MISTRAL_API_KEY": "",
+    "DEEPSEEK_API_KEY": "your-deepseek-api-key-here",
+    "GOOGLE_TRANSLATE_API_KEY": "your-google-translate-api-key-here"
 }

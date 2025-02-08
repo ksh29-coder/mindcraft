@@ -13,6 +13,7 @@ import { addViewer } from './viewer.js';
 import settings from '../../settings.js';
 import { serverProxy } from './agent_proxy.js';
 import { Task } from './tasks.js';
+import { handleTranslation } from '../utils/translator.js';
 
 export class Agent {
     async start(profile_fp, load_mem=false, init_message=null, count_id=0, task_path=null, task_id=null) {
@@ -199,6 +200,17 @@ export class Agent {
         if (!source || !message) {
             console.warn('Received empty message from', source);
             return false;
+        }
+
+        // Translate incoming messages if enabled and they're not from system or self
+        if (settings.enable_translation && source !== 'system' && source !== this.name) {
+            const translation = await handleTranslation(message);
+            if (translation.detectedLanguage !== 'en' && translation.detectedLanguage !== 'unknown') {
+                message = settings.show_original_text 
+                    ? `${translation.translatedMessage} [Original: ${translation.originalMessage} (${translation.detectedLanguage})]`
+                    : translation.translatedMessage;
+                console.log(`Translated message from ${source}:`, message);
+            }
         }
 
         console.log('received message from', source, ':', message);
