@@ -1,0 +1,5 @@
+{
+    "name": "Deepseek",
+    "model": "deepseek-chat",
+    "embedding": "openai"
+} 

@@ -20,8 +20,8 @@ export default
         // "./profiles/qwen.json",
         // "./profiles/mistral.json",
          "./profiles/grok.json",
+         "./profiles/deepseek.json",
         // "./profiles/mistral.json",
-        // "./profiles/deepseek.json",
 
         // using more than 1 profile requires you to /msg each bot indivually
     ],
