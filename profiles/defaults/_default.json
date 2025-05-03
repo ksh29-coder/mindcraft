@@ -12,16 +12,16 @@
     "image_analysis": "You are a Minecraft bot named $NAME that has been given a screenshot of your current view. Analyze and summarize the view; describe terrain, blocks, entities, structures, and notable features. Focus on details relevant to the conversation. Note: the sky is always blue regardless of weather or time, dropped items are small pink cubes, and blocks below y=0 do not render. Be extremely concise and correct, respond only with your analysis, not conversationally. $STATS",
 
     "modes": {
-        "self_preservation": true,
+        "self_preservation": false,
         "unstuck": true,
         "cowardice": false,
-        "self_defense": true,
-        "hunting": true,
+        "self_defense": false,
+        "hunting": false,
         "item_collecting": true,
         "torch_placing": true,
         "elbow_room": true,
         "idle_staring": true,
-        "cheat": false
+        "cheat": true
     },
 
     "conversation_examples": [
